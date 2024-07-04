@@ -40,3 +40,8 @@
        
     }
 }
+@media (max-width:450px) {
+    .search input{
+        width: 75px;       
+    }
+}
