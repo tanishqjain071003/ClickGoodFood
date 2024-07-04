@@ -3,6 +3,7 @@ import './Navbar.css'
 import { assets } from '../../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../Context/StoreContext'
+import SearchBar from '../SearchBar/SearchBar'
 
 const Navbar = ({ setShowLogin }) => {
 
