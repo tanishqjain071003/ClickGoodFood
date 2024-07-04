@@ -5,7 +5,7 @@ import axios from 'axios'
 import { StoreContext } from '../../Context/StoreContext'
 
 
-const SearchBar = ({setResults}) => {
+const SearchBar = () => {
     
     const {url,search,setSearch,fetchSearch} = useContext(StoreContext)
 
