@@ -9,6 +9,8 @@ const StoreContextProvider = (props) => {
     const [food_list, setFoodList] = useState([]);
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("")
+    const [results,setResults] = useState([])
+    const [search,setSearch] = useState("")
 
 
     const addToCart = async (itemId) => {
@@ -51,6 +53,15 @@ const StoreContextProvider = (props) => {
         const response = await axios.post(url + "/api/cart/get", {}, { headers: token });
         setCartItems(response.data.cartData);
     }
+    const fetchSearch = async (search)=>{
+
+        const response = await axios.get(url + '/api/food/list')
+        const results = response.data.data.filter((user)=>{
+            return user && user.name && user.name.toLowerCase().includes(search)
+        })
+        setResults(results);
+        console.log(results);
+    }
 
     useEffect(() => {
         async function loadData() {
@@ -74,7 +85,11 @@ const StoreContextProvider = (props) => {
         token,
         setToken,
         loadCartData,
-        setCartItems
+        setCartItems,
+        fetchSearch,
+        search,
+        setSearch,
+        results
     };
 
     return (
