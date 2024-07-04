@@ -27,7 +27,7 @@ const Navbar = ({ setShowLogin }) => {
         <a href='#footer' onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active list" : "list"}`}>Contact Us</a>
       </ul>
       <div>
-      <SearchBar results = {results} setResults = {setResults}/>
+      <SearchBar />
       </div>
       <div className="navbarRight">
         <img className = "searchIcon" src={assets.search_icon} alt="" />
