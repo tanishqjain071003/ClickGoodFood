@@ -9,6 +9,7 @@ const SearchBar = () => {
     
     const {url,search,setSearch,fetchSearch} = useContext(StoreContext)
 
+    
     return (
         <div className = 'search'>
             <input type="text" placeholder='Search' value = {search} onChange={(e)=>{setSearch(e.target.value) 
