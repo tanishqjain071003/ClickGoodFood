@@ -25,6 +25,9 @@ const Navbar = ({ setShowLogin }) => {
         <a href='#appDownload' onClick={() => setMenu("mobile-app")} className={`${menu === "mobile-app list" ? "active" : "list"}`}>Mobile app</a>
         <a href='#footer' onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active list" : "list"}`}>Contact Us</a>
       </ul>
+      <div>
+      <SearchBar results = {results} setResults = {setResults}/>
+      </div>
       <div className="navbarRight">
         <img className = "searchIcon" src={assets.search_icon} alt="" />
         <Link to='/cart' className='navbarSearchIcon'>
