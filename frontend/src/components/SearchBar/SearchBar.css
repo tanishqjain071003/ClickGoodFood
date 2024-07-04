@@ -18,3 +18,25 @@
     margin-right: 0;
     transform: scale(0.9);
 }
+
+
+@media (max-width:1050px) {
+    .search input{
+        width: 200px;
+    }
+}
+
+@media (max-width:900px) {
+    .search input{
+        width: 100px;
+        
+    }
+}
+
+@media (max-width:750px) {
+    .search input{
+        width: 200px;
+        margin-right: 20px;
+       
+    }
+}
