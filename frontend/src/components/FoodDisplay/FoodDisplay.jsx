@@ -1,4 +1,5 @@
 import React, { useContext,useState,useEffect } from 'react'
+import axios from 'axios'
 import './FoodDisplay.css'
 import FoodItem from '../FoodItem/FoodItem'
 import { StoreContext } from '../../Context/StoreContext'
