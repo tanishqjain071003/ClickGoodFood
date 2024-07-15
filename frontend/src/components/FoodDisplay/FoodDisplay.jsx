@@ -1,11 +1,12 @@
-import React, { useContext,useState,useEffect } from 'react'
-import axios from 'axios'
+import React, { useContext, useEffect, useState } from 'react'
 import './FoodDisplay.css'
 import FoodItem from '../FoodItem/FoodItem'
+import axios from 'axios'
 import { StoreContext } from '../../Context/StoreContext'
+import Loading from '../Loading/Loading'
 
 const FoodDisplay = ({category}) => {
-
+  
   const {url} = useContext(StoreContext);
   const[food_list,setFoodList] = useState([])
   const[loading,setLoading] = useState(true);
@@ -14,19 +15,21 @@ const FoodDisplay = ({category}) => {
     try {
         const response = await axios.get(url + "/api/food/list");
         setFoodList(response.data.data)
-        
+      
     } catch (error) {
         console.log(error);
     }finally{
         setLoading(false);
     }  
+    console.log(food_list);
 }
+  //reload
   useEffect(()=>{
     fetchFoodList()
   },[])
   
-  console.log(food_list);
-  if(loading)return <div>Loading</div>
+  
+  if(loading)return <Loading/>
   return (
       <div className='foodDisplay' id='foodDisplay'>
       <h2>Top dishes near you</h2>
@@ -39,6 +42,6 @@ const FoodDisplay = ({category}) => {
       </div>
       </div>
   )
+  
 }
-
-export default FoodDisplay
+export default FoodDisplay;
