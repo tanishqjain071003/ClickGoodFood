@@ -3,15 +3,25 @@ import './MyOrders.css'
 import axios from 'axios'
 import { StoreContext } from '../../Context/StoreContext';
 import { assets } from '../../assets/assets';
+import Loading from '../../components/Loading/Loading';
+
 
 const MyOrders = () => {
   
   const [data,setData] =  useState([]);
+  const [loading,setLoading] = useState(true);
   const {url,token} = useContext(StoreContext);
 
   const fetchOrders = async () => {
-    const response = await axios.post(url+"/api/order/userorders",{},{headers:{token}});
-    setData(response.data.data)
+    setLoading(true);
+    try {
+      const response = await axios.post(url+"/api/order/userorders",{},{headers:{token}});
+      setData(response.data.data)
+    } catch (error) {
+      console.log(error);
+    }finally{
+      setLoading(false);
+    } 
   }
 
   useEffect(()=>{
@@ -19,6 +29,8 @@ const MyOrders = () => {
       fetchOrders();
     }
   },[token])
+
+  if(loading)return <Loading/>
 
   return (
     <div className='myOrders'>
