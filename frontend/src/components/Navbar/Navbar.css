@@ -86,6 +86,14 @@
     position: relative;
 
 }
+.profilePic{
+    border-radius:9999px;
+    width:35px;
+    border:none;
+    -webkit-box-shadow: 0px 0px 15px -3px rgba(255,0,217,1);
+    -moz-box-shadow: 0px 0px 15px -3px rgba(255,0,217,1);
+    box-shadow: 0px 0px 15px -3px rgba(255,0,217,1);
+}
 .navbarProfileDropdown{
     position: absolute;
     display: none;
