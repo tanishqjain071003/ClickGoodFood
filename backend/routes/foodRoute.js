@@ -5,6 +5,7 @@ const foodRouter = express.Router();
 import path from 'path'
 
 //Image Storage Engine (Saving Image to uploads folder & rename it)
+const __dirname = path.resolve();
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
